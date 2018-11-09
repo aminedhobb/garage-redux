@@ -14,10 +14,12 @@ class CarsIndex extends Component {
     return (
       this.props.cars.map((car) => {
         return(
-          <div className="card" key={car.id}>
-            <h4> {car.brand} - {car.model} </h4>
-            <p> <strong> Owner :</strong> {car.owner}</p>
-          </div>
+          <Link to={`cars/${car.id}`} key={car.id}>
+            <div className="card" >
+              <h4> {car.brand} - {car.model} </h4>
+              <p> <strong> Owner :</strong> {car.owner}</p>
+            </div>
+          </Link>
         )
       })
     )

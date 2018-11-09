@@ -5,7 +5,7 @@ import { reduxForm, Field } from 'redux-form';
 import { createCar } from '../actions';
 import { Link } from 'react-router-dom'; 
 
-class carNew extends Component {
+class carsNew extends Component {
 
   onSubmit = (values) => {
     this.props.createCar(values, (post) => {
@@ -41,7 +41,7 @@ class carNew extends Component {
           </div>
         </div>
         <div className="form-container">
-          <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+          <form onSubmit={this.props.handleSubmit(this.onSubmit)} className="col-xs-6 col-xs-offset-3 form-list">
             <Field
               className="form-control"
               label="Brand"
@@ -80,6 +80,12 @@ class carNew extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    garage: state.garage
+  }
+}
+
 export default reduxForm({ form: 'newCarForm' })(
-  connect(null, { createCar })(carNew)
+  connect(mapStateToProps, { createCar })(carsNew)
 );

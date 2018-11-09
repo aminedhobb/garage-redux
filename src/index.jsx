@@ -9,7 +9,8 @@ import { createHistory as history } from 'history';
 import { reducer as formReducer } from 'redux-form';
 
 import CarsIndex from './containers/cars_index';
-import CarNew from './containers/car_new';
+import CarsNew from './containers/cars_new';
+import CarsShow from './containers/cars_show';
 
 import '../assets/stylesheets/application.scss';
 
@@ -40,7 +41,8 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path="/" exact component={CarsIndex} />
-        <Route path="/cars/new" exact component={CarNew} /> 
+        <Route path="/cars/new" exact component={CarsNew} /> 
+        <Route path="/cars/:id" component={CarsShow} />
       </Switch>
     </Router>
   </Provider>,
