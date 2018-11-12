@@ -1,6 +1,7 @@
 export const FETCH_CARS = 'FETCH_CARS';
 export const CREATE_CAR = 'CREATE_CAR';
 export const FETCH_CAR = 'FETCH_CAR';
+export const DELETE_CAR = 'DELETE_CAR';
 
 export function fetchCar(id) {
   const promise = fetch(`https://wagon-garage-api.herokuapp.com/cars/${id}`)
@@ -9,6 +10,17 @@ export function fetchCar(id) {
     type: FETCH_CAR,
     payload: promise
   };
+}
+
+export function deleteCar(id, callback) {
+  const promise = fetch(`https://wagon-garage-api.herokuapp.com/cars/${id}`, {
+      method: 'DELETE',      
+    }).then(r => r.json())
+      .then(callback);
+  return {
+    type: DELETE_CAR,
+    payload: promise
+  }
 }
 
 export function fetchCars() {

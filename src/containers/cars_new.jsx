@@ -8,9 +8,9 @@ import { Link } from 'react-router-dom';
 class carsNew extends Component {
 
   onSubmit = (values) => {
-    this.props.createCar(values, (post) => {
+    this.props.createCar(values, (car) => {
       this.props.history.push('/'); // Navigate after submit
-      return post;
+      return car;
     });
   }
 
